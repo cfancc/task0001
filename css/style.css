@@ -1,3 +1,9 @@
+/*
+一些建议:
+1. 一些公用的样式可以抽出, 比如clearfix
+2. 已经reset过的样式不要重复写了
+ */
+
 body,
 p {
     margin: 0;
@@ -62,7 +68,7 @@ body {
 }
 .banner-img {
     width: 100%;
-    height: 100%;
+    height: 100%; /* 这个还需要吗 width已经100%了 */
     vertical-align: middle;
 }
 .nav {
@@ -72,6 +78,9 @@ body {
 }
 .nav ul {
     /*reset*/
+    /* 上面已经reset了, 可以去掉
+    另外, 没有清除浮动
+    */ 
     margin: 0;
     padding: 0;
     margin-top: 50px;
@@ -312,7 +321,7 @@ body {
 .tabs {
     list-style: none;
     width: 710px;
-    height: 680px;
+    height: 680px; /**/
     text-align: center;
 }
 .tabs .tab-panel {
@@ -322,6 +331,7 @@ body {
     border-bottom: solid 1px #ccc;
     background: #fff;
 }
+/* 以下的, 可以设一个全局的, 再单独设置border-color */
 .tabs .tab-1{
     border-top: solid 4px #dd0;
 }
@@ -658,6 +668,7 @@ body {
     width: 300px;
     background: #fff;
     border: solid 10px #fff;
+    /* 好方法, 学习了 */
     padding-bottom: 10000px;
     margin-bottom: -10000px;
 }
@@ -693,18 +704,20 @@ body {
 }
 .footer {
     background: #000;
-    height: 395px;
+    /* height不定死是不是更好, 如果里面的内容增加, 可能会到copyright的位置
+    .copyright也不用absolute, 而是与上面设一个margin-top */
+    height: 395px; 
     position: relative;
 }
 .mininav {
-    height: 35px;
+    height: 35px; /*也可以去掉*/
     border-bottom: 1px solid #333;
 }
 .mininav ul {
     line-height: 35px;
     list-style: none;
-    overflow: hidden;
-    padding: 0;
+    overflow: hidden; /*可以单独建一个clearfix的类*/
+    padding: 0; /* 全局已清理, 可以去掉 */
     width: 200px;
     margin: auto;
 }
